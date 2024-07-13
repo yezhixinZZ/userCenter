@@ -1,0 +1,61 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: Asia/Shanghai
+  application:
+    name: user-center
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yzx
+    username: root
+    password: root
+  data:
+    redis:
+      host: 192.168.87.131
+      port: 6379
+      password: root
+      database: 1
+  session:
+    timeout: 86400
+    redis:
+      repository-type: default
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+    session:
+      cookie:
+        domain:
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.yzx.usercenter.controller
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+
+
+
+
